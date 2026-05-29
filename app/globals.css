@@ -1,0 +1,419 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+
+@import "tailwindcss/preflight";
+@import "tailwindcss";
+
+/* ============================================
+   CYBERSIGILISM — WHITE EDITION
+   Organic ink marks + digital precision
+   ============================================ */
+
+:root {
+  /* White base palette */
+  --bg-void:     #faf9f7;
+  --bg-deep:     #f5f3ef;
+  --bg-surface:  #f0ede8;
+  --bg-card:     #ede9e3;
+  --bg-card-hover: #e8e3dc;
+
+  /* Ink / line colors — dark but not harsh */
+  --ink-full:    #1a1714;
+  --ink-mid:     #2e2a26;
+  --ink-soft:    #4a4540;
+  --ink-faint:   #8a837a;
+  --ink-ghost:   #c4bdb6;
+  --ink-trace:   #ddd8d2;
+
+  /* Border */
+  --border-hair: #d8d2ca;
+  --border-mid:  #b8b0a6;
+  --border-ink:  #6b6460;
+
+  /* Accents — muted, organic */
+  --accent-ink:       #1a1714;
+  --accent-rust:      #7a4a3a;
+  --accent-rust-soft: #a06050;
+  --accent-sepia:     #8b7355;
+  --accent-sepia-light: #a68c6a;
+  --accent-ash:       #5a5550;
+
+  /* Text */
+  --text-primary:   #1a1714;
+  --text-secondary: #4a4540;
+  --text-muted:     #7a7570;
+  --text-ghost:     #aaa49e;
+
+  /* Shadows & glows — subtle ink bleed */
+  --shadow-soft: 0 2px 20px rgba(26,23,20,0.06);
+  --shadow-card: 0 4px 30px rgba(26,23,20,0.08);
+  --shadow-ink:  0 0 0 1px rgba(26,23,20,0.08);
+  --ink-glow:    0 0 40px rgba(26,23,20,0.04);
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-mono:    'Space Mono', monospace;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+  /* Subtle paper grain texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb { background: var(--ink-ghost); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-faint); }
+
+/* ===== SELECTION ===== */
+::selection { background: rgba(26,23,20,0.1); color: var(--ink-full); }
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-block;
+  font-style: italic;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 55%;
+  height: 1px;
+  background: linear-gradient(to right, var(--ink-full), transparent);
+}
+
+/* ===== CARD ===== */
+.card-gothic {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hair);
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-card);
+}
+.card-gothic:hover {
+  border-color: var(--border-ink);
+  background: var(--bg-card-hover);
+  box-shadow: 0 8px 40px rgba(26,23,20,0.1);
+  transform: translateY(-3px);
+}
+
+/* ===== BUTTONS ===== */
+.btn-gothic {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--ink-full);
+  background: transparent;
+  color: var(--ink-full);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-gothic::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--ink-full);
+  transform: translateX(-101%);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+.btn-gothic > * { position: relative; z-index: 1; }
+.btn-gothic span { position: relative; z-index: 1; }
+.btn-gothic:hover { color: var(--bg-void); }
+.btn-gothic:hover::before { transform: translateX(0); }
+
+.btn-gothic-gold {
+  border-color: var(--accent-sepia);
+  color: var(--accent-sepia);
+}
+.btn-gothic-gold::before { background: var(--accent-sepia); }
+.btn-gothic-gold:hover { color: var(--bg-void); }
+
+/* ===== TAG ===== */
+.tag-gothic {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--border-mid);
+  color: var(--ink-soft);
+  background: rgba(26,23,20,0.03);
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+.tag-gothic:hover {
+  border-color: var(--ink-full);
+  background: rgba(26,23,20,0.06);
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-bar {
+  height: 2px;
+  background: var(--ink-trace);
+  position: relative;
+  overflow: visible;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--ink-full), var(--accent-sepia));
+  position: relative;
+}
+.progress-bar-fill::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--accent-rust);
+  border-radius: 50%;
+}
+
+/* ============================================
+   FLOATING SIGIL DECORATIONS
+   Images placed as translucent ink ghosts
+   ============================================ */
+.sigil-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Each sigil element */
+.sigil {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  /* mix-blend-mode: multiply makes white bg transparent on white page — perfect */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Anime figure — top-left, large, dreamy */
+.sigil-anime {
+  background-image: url('/sigils/sigil-1.jpg');
+  width: 380px;
+  height: 520px;
+  top: 5vh;
+  left: -60px;
+  opacity: 0.07;
+  animation: sigil-drift-a 18s ease-in-out infinite;
+}
+
+/* Cross sigil — center right */
+.sigil-cross {
+  background-image: url('/sigils/sigil-2.jpg');
+  width: 280px;
+  height: 380px;
+  top: 25vh;
+  right: 2vw;
+  opacity: 0.06;
+  animation: sigil-drift-b 22s ease-in-out infinite;
+}
+
+/* Japanese script — bottom left */
+.sigil-script-jp {
+  background-image: url('/sigils/sigil-3.jpg');
+  width: 260px;
+  height: 340px;
+  bottom: 10vh;
+  left: 5vw;
+  opacity: 0.04;
+  animation: sigil-drift-c 26s ease-in-out infinite;
+}
+
+/* Organic crack — mid center */
+.sigil-crack {
+  background-image: url('/sigils/sigil-4.jpg');
+  width: 180px;
+  height: 340px;
+  top: 45vh;
+  left: 44vw;
+  opacity: 0.05;
+  animation: sigil-drift-a 20s ease-in-out infinite reverse;
+}
+
+/* Sword sigil — right bottom */
+.sigil-sword {
+  background-image: url('/sigils/sigil-5.jpg');
+  width: 200px;
+  height: 480px;
+  bottom: 0;
+  right: 8vw;
+  opacity: 0.06;
+  animation: sigil-drift-b 24s ease-in-out infinite;
+}
+
+/* Thorn column — top right corner */
+.sigil-thorn {
+  background-image: url('/sigils/sigil-6.jpg');
+  width: 160px;
+  height: 420px;
+  top: 0;
+  right: 28vw;
+  opacity: 0.045;
+  animation: sigil-drift-c 30s ease-in-out infinite;
+}
+
+/* English script — bottom right */
+.sigil-script-en {
+  background-image: url('/sigils/sigil-7.jpg');
+  width: 300px;
+  height: 300px;
+  bottom: 5vh;
+  right: 3vw;
+  opacity: 0.04;
+  animation: sigil-drift-a 28s ease-in-out infinite reverse;
+}
+
+/* ===== SIGIL FLOAT ANIMATIONS ===== */
+@keyframes sigil-drift-a {
+  0%   { transform: translateY(0px)   rotate(0deg)   scale(1); }
+  25%  { transform: translateY(-18px) rotate(0.8deg) scale(1.01); }
+  50%  { transform: translateY(-8px)  rotate(-0.5deg) scale(1.005); }
+  75%  { transform: translateY(-22px) rotate(0.3deg) scale(1.015); }
+  100% { transform: translateY(0px)   rotate(0deg)   scale(1); }
+}
+@keyframes sigil-drift-b {
+  0%   { transform: translateY(0px)   rotate(0deg)    scale(1); }
+  30%  { transform: translateY(-14px) rotate(-0.6deg) scale(0.995); }
+  60%  { transform: translateY(-25px) rotate(0.9deg)  scale(1.01); }
+  100% { transform: translateY(0px)   rotate(0deg)    scale(1); }
+}
+@keyframes sigil-drift-c {
+  0%   { transform: translateY(0)     translateX(0)   rotate(0deg); }
+  20%  { transform: translateY(-10px) translateX(5px) rotate(0.4deg); }
+  50%  { transform: translateY(-20px) translateX(-4px) rotate(-0.7deg); }
+  80%  { transform: translateY(-12px) translateX(3px) rotate(0.5deg); }
+  100% { transform: translateY(0)     translateX(0)   rotate(0deg); }
+}
+
+/* ===== GENERAL ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes inkBlink {
+  0%,100% { opacity: 1; }
+  48% { opacity: 1; }
+  50% { opacity: 0; }
+  52% { opacity: 1; }
+}
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-fade-up  { animation: fadeInUp 0.7s ease forwards; }
+.animate-fade     { animation: fadeIn 1s ease forwards; }
+.animate-ink-blink { animation: inkBlink 1.2s step-end infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+
+/* ===== ORNAMENT DIVIDER ===== */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-mid), transparent);
+}
+
+/* ===== SECTION PRETITLE ===== */
+.pre-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--accent-rust-soft);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ===== UTILITY ===== */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+.text-ink     { color: var(--ink-full); }
+.text-rust    { color: var(--accent-rust-soft); }
+.text-sepia   { color: var(--accent-sepia-light); }
+.text-muted   { color: var(--text-muted); }
+
+/* ============================================
+   SIGIL VISIBILITY FIX
+   Pastikan semua section tidak memblokir sigil
+   ============================================ */
+
+/* Hapus z-index dari section agar sigil (z:2) selalu di atas */
+section {
+  position: relative;
+  z-index: auto;
+  /* Background pakai rgba agar mixBlendMode bekerja */
+  isolation: auto;
+}
+
+/* Navbar di atas sigil */
+header {
+  z-index: 1000 !important;
+}
+
+/* Main tidak boleh membuat stacking context baru */
+main {
+  position: static;
+  isolation: auto;
+}
