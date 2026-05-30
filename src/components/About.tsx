@@ -13,19 +13,27 @@ export default function About() {
           {/* Left */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.75rem" }}>
             {/* Portrait */}
-            <div style={{ position: "relative", aspectRatio: "3/4", maxWidth: "300px" }}>
-              <div style={{
-                width: "100%", height: "100%",
-                background: "var(--bg-surface)",
-                border: "1px solid var(--border-hair)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                position: "relative",
-              }}>
-                <span style={{
-                  fontFamily: "var(--font-display)", fontSize: "3.5rem",
-                  fontWeight: 700, fontStyle: "italic",
-                  color: "var(--ink-soft)",
-                }}>RNF</span>
+            <div style={{ position: "relative", maxWidth: "300px" }}>
+                <div style={{
+                  width: "100%",
+                  border: "1px solid var(--border-hair)",
+                  overflow: "hidden",
+                  position: "relative",
+                  }}>
+                <img
+                  src="/profile.jpg"
+                  alt="Rahman Nor Fauzan"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                    display: "block",
+                    filter: "grayscale(15%) contrast(1.05)",
+                    aspectRatio: "3/4",
+                  }}
+                />
+
                 {/* Corner marks */}
                 {["tl","tr","bl","br"].map((c) => (
                   <div key={c} style={{
@@ -40,9 +48,14 @@ export default function About() {
                   }} />
                 ))}
               </div>
+
+              {/* Offset shadow border */}
               <div style={{
-                position: "absolute", top: "10px", left: "10px", right: "-10px", bottom: "-10px",
-                border: "1px solid var(--border-hair)", zIndex: -1,
+                position: "absolute",
+                top: "10px", left: "10px",
+                right: "-10px", bottom: "-10px",
+                border: "1px solid var(--border-hair)",
+                zIndex: -1,
               }} />
             </div>
 

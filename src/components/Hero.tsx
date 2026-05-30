@@ -115,7 +115,7 @@ export default function Hero() {
           margin: "0 auto 3rem", lineHeight: 1.9,
           animation: "fadeInUp 0.6s ease 0.4s forwards", opacity: 0,
         }}>
-          Membangun kecerdasan buatan yang berdampak nyata —
+          Membangun kecerdasan buatan yang berdampak nyata,
           dari riset mendalam hingga sistem production-ready.
         </p>
 
