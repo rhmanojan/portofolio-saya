@@ -2,37 +2,37 @@
 
 const sigils = [
   {
-    src: "/sigils/sigil-1.jpg",
+    src: "/sigils/sigil-1.png",
     style: { width: "360px", top: "5vh", left: "-30px", opacity: 0.15,
       animation: "sigilDriftA 18s ease-in-out infinite" },
   },
   {
-    src: "/sigils/sigil-2.jpg",
+    src: "/sigils/sigil-2.png",
     style: { width: "220px", top: "18vh", right: "2vw", opacity: 0.13,
       animation: "sigilDriftB 22s ease-in-out infinite" },
   },
   {
-    src: "/sigils/sigil-3.jpg",
+    src: "/sigils/sigil-3.png",
     style: { width: "230px", bottom: "6vh", left: "3vw", opacity: 0.1,
       animation: "sigilDriftC 26s ease-in-out infinite" },
   },
   {
-    src: "/sigils/sigil-4.jpg",
+    src: "/sigils/sigil-4.png",
     style: { width: "170px", top: "50vh", left: "40vw", opacity: 0.1,
       animation: "sigilDriftA 20s ease-in-out infinite reverse" },
   },
   {
-    src: "/sigils/sigil-5.jpg",
+    src: "/sigils/sigil-5.png",
     style: { width: "190px", bottom: "0", right: "5vw", opacity: 0.13,
       animation: "sigilDriftB 24s ease-in-out infinite" },
   },
   {
-    src: "/sigils/sigil-6.jpg",
+    src: "/sigils/sigil-6.png",
     style: { width: "160px", top: "1vh", right: "22vw", opacity: 0.1,
       animation: "sigilDriftC 30s ease-in-out infinite" },
   },
   {
-    src: "/sigils/sigil-7.jpg",
+    src: "/sigils/sigil-7.png",
     style: { width: "280px", bottom: "3vh", right: "1vw", opacity: 0.09,
       animation: "sigilDriftA 28s ease-in-out infinite reverse" },
   },
